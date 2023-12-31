@@ -1,4 +1,3 @@
-import dayjs from "dayjs";
 import { isNotFocused } from "~lib/browser/browserFocus";
 import { getCurrentTab } from "~lib/browser/currentTab";
 import { incrementTime } from "~lib/data/incrementTime";
