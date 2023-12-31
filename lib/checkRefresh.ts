@@ -1,6 +1,7 @@
 import { Storage } from "@plasmohq/storage"
 import dayjs from "dayjs"
 import { mergeObjects } from "./mergeObjects";
+import { getTopKeys } from "./getTopEntries";
 
 const storage = new Storage({
   area: "local"
@@ -17,8 +18,10 @@ export async function checkRefresh() {
   const dailyTimeRaw = await storage.get("daily-time")
   let dailyTime = JSON.parse(dailyTimeRaw)
 
-  const newYearlyTime = mergeObjects(yearlyTime, dailyTime)
+  let newYearlyTime = mergeObjects(yearlyTime, dailyTime)
+  newYearlyTime = getTopKeys(newYearlyTime, 100) // prevent storage from absolutely exploding.
   await storage.set("yearly-time", JSON.stringify(newYearlyTime))
+  await storage.set('daily-time', JSON.stringify({}))
 
   await storage.set("last-refresh", dayjs().format("YYYY-MM-DD"))
 }
