@@ -1,8 +1,8 @@
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime"
-
-dayjs.extend(relativeTime)
-
 export function formatTime(seconds: number) {
-  return dayjs(seconds).from(0, true)
+  let hours = Math.floor(seconds / 3600);
+  seconds -= hours * 3600
+  let minutes = Math.floor(seconds / 60)
+  seconds -= minutes * 60
+
+  return [hours, minutes, seconds]
 }

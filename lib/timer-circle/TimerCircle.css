@@ -1,0 +1,3 @@
+.timer-circle-background {
+  background-image: conic-gradient(var(--timer-circle-color) var(--timer-circle-progress), transparent var(--timer-circle-progress));
+}
