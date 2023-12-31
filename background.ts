@@ -1,8 +1,8 @@
 import dayjs from "dayjs";
-import { isNotFocused } from "~lib/browserFocus";
-import { checkRefresh } from "~lib/checkRefresh";
-import { getCurrentTab } from "~lib/currentTab";
-import { incrementTime } from "~lib/incrementTime";
+import { isNotFocused } from "~lib/browser/browserFocus";
+import { checkRefresh } from "~lib/data/checkRefresh";
+import { getCurrentTab } from "~lib/browser/currentTab";
+import { incrementTime } from "~lib/data/incrementTime";
 export {}
 
 setInterval(async () => {

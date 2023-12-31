@@ -1,4 +1,4 @@
-const { rem2px } = require("./lib/rem2Px")
+const { rem2px } = require("./lib/styling/rem2Px")
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */

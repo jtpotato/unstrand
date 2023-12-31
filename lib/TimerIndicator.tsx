@@ -1,9 +1,10 @@
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import { getTime } from "./getTime";
+import { formatTime } from "./formatting/formatTime";
 
 function TimerIndicator() {
-  const [time, setTime] = useState("0")
+  const [time, setTime] = useState(0)
 
   useEffect(() => {
     (async () => {
@@ -19,7 +20,7 @@ function TimerIndicator() {
   }, [])
 
   return (<>
-    <p className="text-white text-sm">{time}</p>
+    <p className="text-white text-sm">{formatTime(time)}</p>
   </>);
 }
 
