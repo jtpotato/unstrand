@@ -5,11 +5,12 @@ const storage = new Storage({
 })
 
 export const incrementTime = async (domain: string) => {
-  let time = await storage.get(`${domain}-time`)
-  if (time == "") time = "0"
+  let dailyTimeRaw = await storage.get(`daily-time`)
+  let todayTimes = {}
+  if (dailyTimeRaw) todayTimes = JSON.parse(dailyTimeRaw)
 
-  let numTime = Number.parseInt(time)
-  numTime++
+  let time = todayTimes[domain] + 1
+  todayTimes[domain] = time
 
-  await storage.set(`${domain}-time`, numTime)
+  await storage.set("daily-time", JSON.stringify(todayTimes))
 }
