@@ -6,7 +6,7 @@ const storage = new Storage({
 
 export async function getTime() {
   const hostname = window.location.hostname
-  const dailyTime = JSON.parse(await storage.get(`daily-time`))
+  const dailyTime = await storage.get(`daily-times`)
   const time = dailyTime[hostname] as number
 
   return time

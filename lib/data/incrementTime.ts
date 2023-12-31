@@ -1,16 +1,21 @@
 import { Storage } from "@plasmohq/storage"
+import dayjs from "dayjs"
 
 const storage = new Storage({
   area: "local"
 })
 
+async function incrementSpecificKey(key: string, domain: string) {
+  const storageReturn = await storage.get(key)
+  let times = storageReturn ? storageReturn : {}
+
+  if (times[domain]) times[domain] = times[domain] + 1
+  else times[domain] = 1
+
+  await storage.set(key, times)
+}
+
 export const incrementTime = async (domain: string) => {
-  let dailyTimeRaw = await storage.get(`daily-time`)
-  let todayTimes = {}
-  if (dailyTimeRaw) todayTimes = JSON.parse(dailyTimeRaw)
-
-  let time = todayTimes[domain] + 1
-  todayTimes[domain] = time
-
-  await storage.set("daily-time", JSON.stringify(todayTimes))
+  await incrementSpecificKey("daily-times", domain)
+  await incrementSpecificKey(dayjs().format("YYYY-MM"), domain)
 }

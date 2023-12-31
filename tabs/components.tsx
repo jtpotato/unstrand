@@ -16,7 +16,7 @@ function Components() {
 
   return (
     <div className="p-4 bg-black">
-    <TimerCircle maximum={60} value={counter} />
+      <TimerCircle maximum={60} value={counter} accentColor="#f01111" />
     </div>
 
   );

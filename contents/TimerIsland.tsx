@@ -12,7 +12,7 @@ const TimerIsland = () => {
   return (
     <div style={{ fontSize: "16px !important" }}>
       <div className="fixed top-0 left-0 w-screen h-screen flex items-center justify-end pointer-events-none p-4">
-        <div className="bg-black rounded-full p-1.5">
+        <div className="bg-black rounded-full p-1.5 border border-neutral-700">
           <TimerIndicator />
         </div>
       </div>

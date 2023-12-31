@@ -17,7 +17,7 @@ function TimerCircle(props: { value: number, maximum: number, accentColor: strin
   return (
     <div
       className="rounded-full relative timer-circle-background"
-      style={{ width: circleRadius * 2 + "px", height: circleRadius * 2 + "px", "--timer-circle-progress": `${progress}%`, "--timer-circle-color": props.accentColor } as CSSProperties}>
+      style={{ width: circleRadius * 2 + "px", height: circleRadius * 2 + "px", "--timer-circle-progress": `${progress}%`, "--timer-circle-color": props.accentColor, "--timer-circle-transparent": props.accentColor + "40" } as CSSProperties}>
 
       <div className="absolute rounded-full"
         style={{
