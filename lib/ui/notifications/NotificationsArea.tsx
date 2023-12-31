@@ -14,7 +14,7 @@ function NotificationsArea() {
 
 
   return (<>
-    <div className="text-white text-xs flex items-center justify-center">
+    <div className="text-white text-sm flex items-center justify-center">
       {notification ?
         <div className="p-2">{notification}</div> : <></>
       }
