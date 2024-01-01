@@ -21,14 +21,15 @@ export async function checkNotifications(domain: string, time: number) {
   let range = generateRange(time, 2)
 
   range.forEach((pointInRange) => {
-    if (!notificationMilestones[pointInRange]) return
+    console.log(pointInRange.toString())
+    if (!notificationMilestones[pointInRange.toString()]) return
 
     (async () => {
       const notificationsInStorage = await storage.get("notifications")
       if (!notificationsInStorage) return;
 
       console.log(notificationMilestones[pointInRange])
-      await storage.set("notifications", { content: notificationMilestones[pointInRange], duration: 1000 })
+      await storage.set("notifications", { content: notificationMilestones[pointInRange], duration: 3000 })
     })()
   })
 }

@@ -1,4 +1,4 @@
-import TimerCircle from "./timer-circle/TimerCircle";
+import TimerCircle from "../timer-circle/TimerCircle";
 
 function TrafficLights(props: {time: number[]}) {
   const { time } = props

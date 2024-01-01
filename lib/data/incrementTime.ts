@@ -13,8 +13,6 @@ async function incrementSpecificKey(key: string, domain: string) {
   if (times[domain]) times[domain] = times[domain] + 1
   else times[domain] = 1
 
-  await checkNotifications(domain, times[domain])
-
   await storage.set(key, times)
 }
 
@@ -29,7 +27,11 @@ async function clearDaily() {
 }
 
 export const incrementTime = async (domain: string) => {
-  await clearDaily()
   await incrementSpecificKey("daily-times", domain)
   await incrementSpecificKey(dayjs().format("YYYY-MM"), domain)
+
+  const times = await storage.get("daily-times")
+  await checkNotifications(domain, times[domain])
+
+  await clearDaily()
 }

@@ -2,7 +2,7 @@ import TimerCircle from "~lib/ui/timer-circle/TimerCircle";
 import "../style.css"
 import "~lib/ui/timer-circle/TimerCircle.css"
 import "~lib/ui/notifications/Notification.css"
-import TrafficLights from "~lib/ui/TrafficLights";
+import TrafficLights from "~lib/ui/island/TrafficLights";
 import TimerIsland from "~contents/TimerIsland";
 import NotificationTester from "~lib/ui/notifications/NotificationTester";
 import { useState } from "react";

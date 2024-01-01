@@ -8,7 +8,7 @@ const storage = new Storage({
   area: 'local'
 })
 
-function TimerIndicator() {
+function TimeTicker() {
   const [time, setTime] = useState([0, 0, 0])
   const [currentTimes] = useStorage({ key: "daily-times", instance: storage })
 
@@ -27,4 +27,4 @@ function TimerIndicator() {
   </>);
 }
 
-export default TimerIndicator;
+export default TimeTicker;
