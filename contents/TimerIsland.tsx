@@ -40,7 +40,7 @@ const TimerIsland = () => {
           </HoverManager>
         </div>
       </div>
-      <NotificationTester />
+      {/* <NotificationTester /> */}
     </div>
   )
 }
