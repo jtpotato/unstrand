@@ -24,8 +24,11 @@ export async function checkNotifications(domain: string, time: number) {
     if (!notificationMilestones[pointInRange]) return
 
     (async () => {
+      const notificationsInStorage = await storage.get("notifications")
+      if (!notificationsInStorage) return;
+
       console.log(notificationMilestones[pointInRange])
-      await storage.set("notifications", notificationMilestones[pointInRange])
+      await storage.set("notifications", { content: notificationMilestones[pointInRange], duration: 1000 })
     })()
   })
 }

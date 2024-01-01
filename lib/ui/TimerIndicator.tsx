@@ -1,23 +1,26 @@
 import { useEffect, useState } from "react";
-import { getTime } from "../getTime";
-import { formatTime } from "../formatting/formatTime";
 import TrafficLights from "./TrafficLights";
+import { useStorage } from "@plasmohq/storage/hook";
+import { Storage } from "@plasmohq/storage";
+import { formatTime } from "~lib/formatting/formatTime";
+
+const storage = new Storage({
+  area: 'local'
+})
 
 function TimerIndicator() {
   const [time, setTime] = useState([0, 0, 0])
+  const [currentTimes] = useStorage({ key: "daily-times", instance: storage })
 
   useEffect(() => {
-    (async () => {
-      const currentSpentTime = await getTime()
-      setTime(formatTime(currentSpentTime))
-    })()
+    const hostname = window.location.hostname;
 
-    window.setInterval(async () => {
-      const currentSpentTime = await getTime()
+    if (!currentTimes) return
+    if (!currentTimes[hostname]) return
+    const formattedTime = formatTime(currentTimes[hostname])
 
-      setTime(formatTime(currentSpentTime))
-    }, 1000)
-  }, [])
+    setTime(formattedTime)
+  }, [currentTimes])
 
   return (<>
     <TrafficLights time={time} />

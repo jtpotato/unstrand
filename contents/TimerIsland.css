@@ -1,0 +1,16 @@
+@keyframes timerIslandEntry {
+  from {
+    transform: translateX(150px)
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+.timer-island-entry-anim {
+  animation: timerIslandEntry 0.2s ease;
+}
+
+.timer-island-glow {
+  box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.4);
+}

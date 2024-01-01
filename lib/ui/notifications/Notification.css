@@ -1,0 +1,12 @@
+@keyframes notificationEntryAnimation {
+  0%, 100% {
+    transform: translateX(100%) scale(0, 0.5);
+  }
+  7%, 93% {
+    transform:translateX(0) scale(1, 1);
+  }
+}
+
+.notification-entry-animation {
+  animation: notificationEntryAnimation 3s ease;
+}
