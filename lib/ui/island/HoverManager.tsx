@@ -11,11 +11,10 @@ function HoverManager(props: PropsWithChildren) {
     const isInYRange = initialBoundingRect.top < event.clientY && event.clientY < initialBoundingRect.bottom
 
     if (isInXRange && isInYRange) {
-      console.log("HOVEr")
-      setTransformStyle({ transform: "translateX(100px) scaleY(0.5)" })
+      setTransformStyle({ transform: "translateX(100px) scaleY(0.5) scaleX(1.2)" })
       return
     }
-    setTransformStyle({ transform: "translateX(0) scaleY(1)" })
+    setTransformStyle({ transform: "translateX(0) scaleY(1) scaleX(1)" })
   }
 
   function recalculateBoundingRect() {
