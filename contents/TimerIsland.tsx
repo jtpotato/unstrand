@@ -32,7 +32,6 @@ const TimerIsland = () => {
     console.log("UseEffect running.")
 
     const resizeHandler = new ResizeObserver(() => {
-      console.log("Resizing!!!")
       let padding = [16, 16]
       setTimerIslandBackgroundDimensions(
         [timerIslandBodyRef.current.clientWidth + padding[0], timerIslandBodyRef.current.clientHeight + padding[1]])
@@ -40,7 +39,6 @@ const TimerIsland = () => {
       console.log(timerIslandBodyRef.current.clientWidth)
 
       if (timerIslandBodyRef.current.clientWidth > 48) {
-        console.log("somethign happens here")
         setApplyGlow(true)
       }
       else {
@@ -58,7 +56,7 @@ const TimerIsland = () => {
 
   return (
     <div style={{ fontSize: "16px !important" }}>
-      <div className="fixed -top-40 left-0 w-screen h-screen flex items-center justify-end pointer-events-none p-4">
+      <div className="fixed -top-40 left-0 w-screen h-screen flex items-center justify-end pointer-events-none p-8">
         <div className="timer-island-entry-anim">
           <div className={`flex relative`} ref={timerIslandBodyRef}>
             <NotificationsArea />
