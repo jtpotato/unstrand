@@ -21,7 +21,6 @@ export async function checkNotifications(domain: string, time: number) {
   let range = generateRange(time, 2)
 
   range.forEach((pointInRange) => {
-    console.log(pointInRange.toString())
     if (!notificationMilestones[pointInRange.toString()]) return
 
     (async () => {

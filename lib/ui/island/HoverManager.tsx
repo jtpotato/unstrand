@@ -4,17 +4,25 @@ function HoverManager(props: PropsWithChildren) {
   const [initialBoundingRect, setInitialBoundingRect] = useState<{ top: number, bottom: number, left: number, right: number }>(null)
   const hoverManagerRef = useRef(null)
   const [transformStyle, setTransformStyle] = useState<CSSProperties>({})
+  const [shouldHide, setShouldHide] = useState(false)
 
   function handleMouseMove(event: MouseEvent) {
     if (!initialBoundingRect) return
+
     const isInXRange = initialBoundingRect.left < event.clientX && event.clientX < initialBoundingRect.right
     const isInYRange = initialBoundingRect.top < event.clientY && event.clientY < initialBoundingRect.bottom
 
-    if (isInXRange && isInYRange) {
-      setTransformStyle({ transform: "translateX(100px) scaleY(0.5) scaleX(1.2)" })
+    if (!shouldHide) {
+      if (isInXRange && isInYRange) {
+        setTransformStyle({ transform: "translateX(100px) scaleY(0.5) scaleX(1.2)" })
+        setShouldHide(true)
+      }
       return
     }
-    setTransformStyle({ transform: "translateX(0) scaleY(1) scaleX(1)" })
+    if (!isInXRange) {
+      setTransformStyle({ transform: "translateX(0) scaleY(1) scaleX(1)" })
+      setShouldHide(false)
+    }
   }
 
   function recalculateBoundingRect() {
@@ -46,7 +54,7 @@ function HoverManager(props: PropsWithChildren) {
   useEffect(() => {
     window.addEventListener("mousemove", handleMouseMove)
     return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [initialBoundingRect])
+  }, [initialBoundingRect, shouldHide])
 
   return (<>
     <div className="py-4 pr-6 pointer-events-none" ref={hoverManagerRef}>
