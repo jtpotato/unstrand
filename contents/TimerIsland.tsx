@@ -29,7 +29,7 @@ const TimerIsland = () => {
 
   return (
     <div style={{ fontSize: "16px !important" }}>
-      <div className="fixed pt-16 top-0 left-0 w-screen h-screen flex items-start justify-end pointer-events-none">
+      <div className="fixed left-0 w-screen h-screen flex items-center justify-end pointer-events-none" style={{ top: "calc(-50% + 180px)" }}>
         <div className="timer-island-entry-anim">
           <HoverManager>
             <div className={`flex relative`} ref={timerIslandBodyRef}>
