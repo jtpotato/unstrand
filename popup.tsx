@@ -14,10 +14,11 @@ function IndexPopup() {
               url: "./tabs/stats.html"
             })
           }}
-          className="bg-white/15 rounded-md px-4 py-2"
+          className="bg-white/15 rounded-md px-4 py-2 whitespace-nowrap"
         >
           Open Stats
         </button>
+
         <button
           onClick={() => {
             chrome.tabs.create({
@@ -27,6 +28,17 @@ function IndexPopup() {
           className="bg-white/15 rounded-md px-4 py-2"
         >
           Developer
+        </button>
+
+        <button
+          onClick={() => {
+            chrome.tabs.create({
+              url: "https://buymeacoffee.com/jtpotato"
+            })
+          }}
+          className="bg-white/15 rounded-md px-4 py-2"
+        >
+          <p className="m-auto">Donate</p>
         </button>
       </div>
 
