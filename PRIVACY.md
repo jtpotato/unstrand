@@ -15,4 +15,4 @@ Within content scripts in this extension, listeners to the `mousemove` event are
 If additional methods of using user data are added to this Privacy Policy, updates will be sent out over [Discord](https://discord.gg/acpmJvpYyZ), and in the release of the extension prior to the updated Privacy Policy taking action.
 
 ## Feedback
-For all communications regarding this Privacy Policy, send me an [email](jtpotato_@outlook.com) or file an issue.
+For all communications regarding this Privacy Policy, send me an [email](mailto:jtpotato_@outlook.com) or file an issue.
