@@ -57,7 +57,7 @@ function HoverManager(props: PropsWithChildren) {
   }, [initialBoundingRect, shouldHide])
 
   return (<>
-    <div className="py-4 pr-6 pl-2 pointer-events-none" ref={hoverManagerRef}>
+    <div className="py-4 pr-6 pl-4 pointer-events-none" ref={hoverManagerRef}>
       <div className="transition-all duration-300 ease-[cubic-bezier(.37,0,.04,1.3)]" style={transformStyle}>
         {props.children}
       </div>
